@@ -9,10 +9,10 @@ jobs:
   build-x64:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Setup MSBuild path
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v1.1
 
     - name: Restore NuGet packages
       run: nuget restore PTZControl/PTZControl.sln
@@ -29,10 +29,10 @@ jobs:
   build-x86:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Setup MSBuild path
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v1.1
 
     - name: Restore NuGet packages
       run: nuget restore PTZControl/PTZControl.sln
@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
   
       - name: Extract Tag Name
         id: tagname
