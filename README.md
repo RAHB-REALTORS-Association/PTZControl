@@ -1,6 +1,6 @@
  # PTZControl
 
-This small program is designed to control Logitech PTZ cameras such as the PTZ Pro, PTZ Pro 2, Rally, and other. Operation with the included remote control is possible but cumbersome and inaccurate. This program allows fine-grained movement control and setting of eight preset positions for up to three cameras.
+This small program is designed to control Logitech PTZ cameras such as the PTZ Pro, PTZ Pro 2, Rally cameras, and others. Operation with the included remote control is possible but cumbersome and inaccurate. This program allows fine-grained movement control and setting of eight preset positions for up to three cameras.
 
 ## Table of Contents
 1. [Camera Interfaces](#camera-interfaces)
@@ -26,7 +26,7 @@ The program is always in the foreground, compact, and small for easy use over OB
 The program remembers its last position on the screen and all settings are stored in the registry under `HKEY_CURRENT_USER\SOFTWARE\MRi-Software\PTZControl`.
 
 ## Supported Cameras
-Currently, the Logitech PTZ Pro, PTZ Pro 2, Logitech Rally cameras, and ConferenceCam CC3000e Camera are automatically detected. For other cameras, you can try to force detection by specifying the name (or part of the name) of the cameras in the registry or on the command line.
+Currently, the Logitech PTZ Pro, PTZ Pro 2, Rally cameras, and ConferenceCam CC3000e Camera are automatically detected. For other cameras, you can try to force detection by specifying the name (or part of the name) of the cameras in the registry or on the command line.
 
 Internally, all cameras that have one of the following tokens in the name are automatically used:
 
