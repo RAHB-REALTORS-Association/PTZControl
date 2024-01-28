@@ -1,38 +1,32 @@
  # PTZControl
 
+This small program is designed to control Logitech PTZ cameras such as the PTZ Pro, PTZ Pro 2, Rally, and other. Operation with the included remote control is possible but cumbersome and inaccurate. This program allows fine-grained movement control and setting of eight preset positions for up to three cameras.
+
 ## Table of Contents
-1. [History](#history)
-2. [Basic Code](#basic-code)
-3. [Used Interfaces](#used-interfaces)
-4. [Used Environment and Libraries](#used-environment-and-libraries)
-5. [Behavior](#behavior)
-6. [Supported Cameras](#supported-cameras)
-7. [Guard Thread](#guard-thread)
-8. [Logitech Motion Control](#logitech-motion-control)
-9. [Standard Motion Control](#standard-motion-control)
-10. [Hotkeys](#hotkeys)
-11. [Command Line Options](#command-line-options)
-12. [Registry Settings](#registry-settings)
+1. [Camera Interfaces](#camera-interfaces)
+2. [Development Environment and Libraries](#development-environment-and-libraries)
+3. [Operation](#operation)
+4. [Supported Cameras](#supported-cameras)
+5. [Guard Thread](#guard-thread)
+6. [Logitech Motion Control](#logitech-motion-control)
+7. [Standard Motion Control](#standard-motion-control)
+8. [Hotkeys](#hotkeys)
+9. [Command Line Options](#command-line-options)
+10. [Registry Settings](#registry-settings)
 
-## History
-This small program is designed to control a Logitech Rally Camera. It quickly turned out that the operation with the remote control is possible but cumbersome and inaccurate.
-
-## Basic Code
-Finding code that shows how to control a PTZ camera was not easy, but after contacting Logitech, they provided a download link to the `Logitech Collaboration Software Reference Kit` (Logitech CSRK) which contained some Lync remote control code that gave some hints and usage for the Logitech camera interface.
-
-## Used Interfaces
+## Camera Interfaces
 The program directly uses the camera media control via the Windows SDK, and for controlling the zoom functions and the preset functions of the PTZ 2 Pro, Logitech provided example code with defines from the Lync driver. Logitech internal interfaces are used for saving/getting presets, and for step-by-step Pan Tilt camera control. Standard controls from the Windows Driver API are used for zoom control and timer-controlled PT (Pan Tilt) control.
 
-## Used Environment and Libraries
+## Development Environment and Libraries
 The program was developed using Visual Studio 2019 Community Edition with MFC and ATL as libraries. The EXE runs alone, without installing any other files or DLLs or any installation.
 
-## Behavior
+## Operation
 The program is always in the foreground, compact, and small for easy use over OBS programs. The current selected preset or home position is shown with a green background on the buttons. Recalling a preset is simply done by clicking on one of the number buttons, and presets are changed by pressing the M button followed by a number key.
 
 The program remembers its last position on the screen and all settings are stored in the registry under `HKEY_CURRENT_USER\SOFTWARE\MRi-Software\PTZControl`.
 
 ## Supported Cameras
-Currently, the Logitech PTZ 2 Pro, PTZ Pro, Logitech Rally cameras and ConferenceCam CC3000e Camera are automatically detected. For other cameras, you can try to force detection by specifying the name (or part of the name) of the cameras in the registry or on the command line.
+Currently, the Logitech PTZ Pro, PTZ Pro 2, Logitech Rally cameras, and ConferenceCam CC3000e Camera are automatically detected. For other cameras, you can try to force detection by specifying the name (or part of the name) of the cameras in the registry or on the command line.
 
 Internally, all cameras that have one of the following tokens in the name are automatically used:
 
